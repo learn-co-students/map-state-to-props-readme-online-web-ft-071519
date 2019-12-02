@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import './App.css';
 
 class App extends Component {
@@ -21,4 +22,10 @@ class App extends Component {
   }
 };
 
-export default App;
+// mapStateToProps gives props the ability to mimic state's values.
+const mapStateToProps = (state) => {
+    return { items: state.items }
+}
+
+// connect listens to all changes in state. When a change occurs it calls the function mapStateToProps. Within mapStateToProps, it is specified which part of state is available to props.
+export default connect (mapStateToProps)(App);
